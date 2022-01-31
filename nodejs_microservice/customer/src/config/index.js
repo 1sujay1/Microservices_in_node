@@ -1,8 +1,10 @@
-const dotEnv  = require("dotenv");
+const dotEnv = require("dotenv");
+
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
 if (process.env.NODE_ENV !== 'prod') {
-    const configFile =  `./.env.${process.env.NODE_ENV}`;
-    dotEnv.config({ path:  configFile });
+    const configFile = `./.env.${process.env.NODE_ENV}`;
+    dotEnv.config({ path: configFile });
 } else {
     dotEnv.config();
 }
@@ -13,4 +15,3 @@ module.exports = {
     DB_URL: process.env.MONGODB_URI,
     APP_SECRET: process.env.APP_SECRET
 }
- 
